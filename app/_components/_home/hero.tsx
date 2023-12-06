@@ -11,17 +11,18 @@ import hero2 from "../../assets/bg/hero2.png"
 import hero3 from "../../assets/bg/hero3.png"
 import Image from 'next/image';
 import logos from "../../assets/static/logos.svg"
+import { motion, useScroll, useTransform } from 'framer-motion';
 
 
 const Hero = () => {
-
+    const { scrollYProgress } = useScroll();
 
     // const handleSwiperClick = (swiper: { slideNext: () => void; }) => {
     //     swiper.slideNext();
     // };
 
     return (
-        <div className="w-full py-2">
+        <motion.div id='hero' className="w-full py-2">
             <Swiper
                 // install Swiper modules
                 modules={[Navigation, Pagination, Autoplay, EffectFade]}
@@ -76,7 +77,7 @@ const Hero = () => {
 
                 </SwiperSlide>
             </Swiper>
-        </div >
+        </motion.div >
     )
 }
 

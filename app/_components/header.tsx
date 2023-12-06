@@ -42,22 +42,21 @@ const Navbar = () => {
 
     return (
         <>
-            <div className='sticky top-0 flex items-center justify-between w-full p-4 md:px-8  z-50 bg-[#E6E3D6]'>
-
+            <div className='sticky top-0 flex items-center justify-between w-full p-4 md:px-8  z-40 bg-[#E6E3D6]'>
                 <div className='hidden md:flex'>
                     <ul className='flex space-x-8 text-[#03110B]'>
-                        <li className='hover:cursor-pointer' onClick={() => scrollToSection('about')}>About</li>
-                        <li className='hover:cursor-pointer' onClick={() => scrollToSection('artists')}>Artists</li>
+                        <li className='hover:cursor-pointer font-neue' onClick={() => scrollToSection('about')}>About</li>
+                        <li className='hover:cursor-pointer font-neue' onClick={() => scrollToSection('artists')}>Artists</li>
                     </ul>
                 </div>
 
                 {/* Logo */}
-                <Image src={logo} width={220} height={220} alt='logo' className='w-36 md:w-52' />
+                <Image src={logo} width={220} height={220} alt='logo' className='w-36 md:w-52 hover:cursor-pointer' onClick={() => scrollToSection('hero')} />
 
                 <div className='hidden md:flex'>
                     <ul className='flex space-x-8 text-[#03110B]'>
-                        <li className='hover:cursor-pointer' onClick={() => scrollToSection('press')}>Press</li>
-                        <li className='hover:cursor-pointer' onClick={() => scrollToSection('contact')}>Contact</li>
+                        <li className='hover:cursor-pointer font-neue' onClick={() => scrollToSection('press')}>Press</li>
+                        <li className='hover:cursor-pointer font-neue' onClick={() => scrollToSection('contact')}>Contact</li>
                     </ul>
                 </div>
 
