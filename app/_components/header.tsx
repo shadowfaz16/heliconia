@@ -45,8 +45,8 @@ const Navbar = () => {
             <div className='sticky top-0 flex items-center justify-between w-full p-4 md:px-8  z-40 bg-[#E6E3D6]'>
                 <div className='hidden md:flex'>
                     <ul className='flex space-x-8 text-[#03110B]'>
-                        <li className='hover:cursor-pointer font-neue' onClick={() => scrollToSection('about')}>About</li>
-                        <li className='hover:cursor-pointer font-neue' onClick={() => scrollToSection('artists')}>Artists</li>
+                        <li className='hover:cursor-pointer font-neue hover:underline hover:underline-offset-8' onClick={() => scrollToSection('about')}>About</li>
+                        <li className='hover:cursor-pointer font-neue hover:underline hover:underline-offset-8' onClick={() => scrollToSection('artists')}>Artists</li>
                     </ul>
                 </div>
 
@@ -55,8 +55,8 @@ const Navbar = () => {
 
                 <div className='hidden md:flex'>
                     <ul className='flex space-x-8 text-[#03110B]'>
-                        <li className='hover:cursor-pointer font-neue' onClick={() => scrollToSection('press')}>Press</li>
-                        <li className='hover:cursor-pointer font-neue' onClick={() => scrollToSection('contact')}>Contact</li>
+                        <li className='hover:cursor-pointer font-neue hover:underline hover:underline-offset-8' onClick={() => scrollToSection('press')}>Press</li>
+                        <li className='hover:cursor-pointer font-neue hover:underline hover:underline-offset-8' onClick={() => scrollToSection('contact')}>Contact</li>
                     </ul>
                 </div>
 

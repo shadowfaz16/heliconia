@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 .swiper-pagination-bullet {
-    @apply w-1/4 h-1 bg-[#E6E3D6]/50 opacity-100 rounded-none !important;
+    @apply w-[30%] h-0.5 bg-[#E6E3D6]/50 opacity-100 rounded-none !important;
     /* Length and thickness of the line */
 }
 

@@ -10,7 +10,8 @@ import hero1 from "../../assets/bg/hero1.png"
 import hero2 from "../../assets/bg/hero2.png"
 import hero3 from "../../assets/bg/hero3.png"
 import Image from 'next/image';
-import logos from "../../assets/static/logos.svg"
+import heliconia from "../../assets/static/heliconia.svg"
+import vectorlogo from "../../assets/static/vectorlogo.svg"
 import { motion, useScroll, useTransform } from 'framer-motion';
 
 
@@ -40,8 +41,9 @@ const Hero = () => {
                 <SwiperSlide className="relative flex flex-col justify-end items-center bg-cover bg-center bg-red-400">
 
                     <Image src={hero1} width={2000} height={1180} alt='logo' className='w-full absolute h-full' />
-                    <div className='absolute bottom-12 left-0 w-full h-full flex flex-col justify-end items-center text-[#E6E3D6] space-y-4 px-6 md:px-0'>
-                        <Image src={logos} width={200} height={200} alt='logo' className='' />
+                    <div className='absolute bottom-12 left-0 w-full h-full flex flex-col justify-end items-center text-[#E6E3D6] space-y-2 px-6 md:px-0'>
+                        <Image src={vectorlogo} width={60} height={60} alt='logo' className='' />
+                        <Image src={heliconia} width={220} height={60} alt='logo' className='' />
                         <div className='max-w-4xl mx-auto text-center'>
                             <p className='md:text-2xl font-neue font-light uppercase'>
                                 In the realm of Greek mythology, evoking art and beauty, the plant ‘Heliconia’ was named after the illustrious Mount Helicon, the home of Apollo and the Muses.
@@ -53,8 +55,9 @@ const Hero = () => {
                 <SwiperSlide className="flex justify-center items-center bg-cover bg-center bg-blue-400">
 
                     <Image src={hero2} width={2000} height={1180} alt='logo' className='w-full absolute h-full' />
-                    <div className='absolute bottom-12 left-0 w-full h-full flex flex-col justify-end items-center text-[#E6E3D6] space-y-4 px-6 md:px-0'>
-                        <Image src={logos} width={200} height={200} alt='logo' className='' />
+                    <div className='absolute bottom-12 left-0 w-full h-full flex flex-col justify-end items-center text-[#E6E3D6] space-y-2 px-6 md:px-0'>
+                        <Image src={vectorlogo} width={60} height={60} alt='logo' className='' />
+                        <Image src={heliconia} width={220} height={60} alt='logo' className='' />
                         <div className='max-w-4xl mx-auto text-center'>
                             <p className='md:text-2xl font-neue font-light uppercase'>
                                 Heliconia seeks to break the mold of the traditional contemporary ‘art gallery’. Heliconia is an art world oasis — bridging the gap between the Caribbean and the rest of the world.
@@ -66,8 +69,9 @@ const Hero = () => {
                 <SwiperSlide className="flex justify-center items-center bg-cover bg-center bg-green-400">
 
                     <Image src={hero3} width={2000} height={1180} alt='logo' className='w-full absolute h-full' />
-                    <div className='absolute bottom-12 left-0 w-full h-full flex flex-col justify-end items-center text-[#E6E3D6] space-y-4 px-6 md:px-0'>
-                        <Image src={logos} width={200} height={200} alt='logo' className='' />
+                    <div className='absolute bottom-12 left-0 w-full h-full flex flex-col justify-end items-center text-[#E6E3D6] space-y-2 px-6 md:px-0'>
+                        <Image src={vectorlogo} width={60} height={60} alt='logo' className='' />
+                        <Image src={heliconia} width={220} height={60} alt='logo' className='' />
                         <div className='max-w-4xl mx-auto text-center'>
                             <p className='md:text-2xl font-neue font-light uppercase'>
                                 Featuring exhibitions, presentations, as well as discussions and symposiums, Heliconia will serve as an ecosystem connecting artists, collectors, and art professionals alike.

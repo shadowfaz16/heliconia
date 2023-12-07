@@ -109,7 +109,7 @@ const Artist = ({ artist, onClick }: { artist: ArtistType, onClick: () => void }
 
     return (
         <div onClick={onClick}
-            className={`group w-full min-h-96 h-48 md:h-[60dvh] p-8 flex items-center justify-center transition-all duration-300 rounded-md hover:cursor-pointer ${hover ? 'hovered' : ''}`}
+            className={`group min-h-96 h-60 w md:w-[30em] md:h-[60dvh] p-8 flex items-center justify-center transition-all duration-300 rounded-md hover:cursor-pointer ${hover ? 'hovered' : ''}`}
             onMouseEnter={() => setHover(true)}
             onMouseLeave={() => setHover(false)}
         >
@@ -148,7 +148,7 @@ const Artists = () => {
 
     return (
         <>
-            <div id="artists" className='flex items-center justify-between w-full border-b border-[#D9D9D9] pb-2 overflow-x-scroll hide-scrollbar'>
+            <div id="artists" className='flex items-center justify-between w-full border-b border-[#3C5A50] pb-2 overflow-x-scroll hide-scrollbar'>
                 <h3 className='uppercase font-neue text-xl'>
                     Artists
                 </h3>
@@ -164,7 +164,7 @@ const Artists = () => {
                     </div>
                 </div>
             </div>
-            <div className='flex items-center gap-8 w-full mt-8 overflow-x-scroll hide-scrollbar'>
+            <div className='flex items-center gap-4 md:gap-8 w-full mt-8 overflow-x-scroll hide-scrollbar'>
                 {artists.map(artist => (
                     <Artist key={artist.name} artist={artist} onClick={() => openModal(artist)} />
                 ))}
