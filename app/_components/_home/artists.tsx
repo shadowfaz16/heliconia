@@ -1,6 +1,6 @@
 'use client'
 import Image from 'next/image';
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion';
 
 interface ArtistType {
@@ -13,6 +13,7 @@ interface ArtistType {
 }
 
 const Modal = ({ show, onClose, artist }: { show: boolean, artist?: ArtistType, onClose: () => void }) => {
+
     useEffect(() => {
         const handleEsc = (event: KeyboardEvent) => {
             if (event.key === 'Escape') {
@@ -58,8 +59,6 @@ const Modal = ({ show, onClose, artist }: { show: boolean, artist?: ArtistType, 
             onClose();
         }
     };
-
-
 
 
     return (
@@ -146,6 +145,24 @@ const Artists = () => {
         setSelectedArtist(undefined);
     };
 
+
+    // Ref to the container, explicitly typed as HTMLDivElement
+    const scrollContainerRef = useRef<HTMLDivElement>(null);
+
+    // Function to scroll left
+    const scrollLeft = () => {
+        if (scrollContainerRef.current) {
+            scrollContainerRef.current.scrollBy({ left: -300, behavior: 'smooth' });
+        }
+    };
+
+    // Function to scroll right
+    const scrollRight = () => {
+        if (scrollContainerRef.current) {
+            scrollContainerRef.current.scrollBy({ left: 300, behavior: 'smooth' });
+        }
+    };
+
     return (
         <>
             <div id="artists" className='flex items-center justify-between w-full border-b border-[#3C5A50] pb-2 overflow-x-scroll hide-scrollbar'>
@@ -155,16 +172,16 @@ const Artists = () => {
                 {/* right and left arrows */}
                 <div className='flex'>
                     <div className='flex'>
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-black hover:text-gray-500 cursor-pointer" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <svg onClick={scrollLeft} xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-black hover:text-gray-500 cursor-pointer" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="{2}" d="M15 19l-7-7 7-7" />
                         </svg>
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-black hover:text-gray-500 cursor-pointer" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <svg onClick={scrollRight} xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-black hover:text-gray-500 cursor-pointer" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="{2}" d="M9 5l7 7-7 7" />
                         </svg>
                     </div>
                 </div>
             </div>
-            <div className='flex items-center gap-4 md:gap-8 w-full mt-8 overflow-x-scroll hide-scrollbar'>
+            <div ref={scrollContainerRef} className='flex items-center gap-4 md:gap-8 w-full mt-8 overflow-x-scroll hide-scrollbar'>
                 {artists.map(artist => (
                     <Artist key={artist.name} artist={artist} onClick={() => openModal(artist)} />
                 ))}
