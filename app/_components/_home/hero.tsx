@@ -40,7 +40,7 @@ const Hero = () => {
             >
                 <SwiperSlide className="relative flex flex-col justify-end items-center bg-cover bg-center bg-red-400">
 
-                    <Image src={hero1} width={2000} height={1180} alt='logo' className='w-full absolute h-full' />
+                    <Image src={hero1} layout="fill" objectFit="cover" objectPosition="center" alt='logo' className='w-full absolute h-full' />
                     <div className='absolute bottom-12 left-0 w-full h-full flex flex-col justify-end items-center text-[#E6E3D6] space-y-2 px-6 md:px-0'>
                         <Image src={vectorlogo} width={60} height={60} alt='logo' className='' />
                         <Image src={heliconia} width={220} height={60} alt='logo' className='' />
@@ -54,7 +54,7 @@ const Hero = () => {
                 </SwiperSlide>
                 <SwiperSlide className="flex justify-center items-center bg-cover bg-center bg-blue-400">
 
-                    <Image src={hero2} width={2000} height={1180} alt='logo' className='w-full absolute h-full' />
+                    <Image src={hero2} layout="fill" objectFit="cover" objectPosition="center" alt='logo' className='w-full absolute h-full' />
                     <div className='absolute bottom-12 left-0 w-full h-full flex flex-col justify-end items-center text-[#E6E3D6] space-y-2 px-6 md:px-0'>
                         <Image src={vectorlogo} width={60} height={60} alt='logo' className='' />
                         <Image src={heliconia} width={220} height={60} alt='logo' className='' />
@@ -68,7 +68,7 @@ const Hero = () => {
                 </SwiperSlide>
                 <SwiperSlide className="flex justify-center items-center bg-cover bg-center bg-green-400">
 
-                    <Image src={hero3} width={2000} height={1180} alt='logo' className='w-full absolute h-full' />
+                    <Image src={hero3} layout="fill" objectFit="cover" objectPosition="center" alt='logo' className='w-full absolute h-full' />
                     <div className='absolute bottom-12 left-0 w-full h-full flex flex-col justify-end items-center text-[#E6E3D6] space-y-2 px-6 md:px-0'>
                         <Image src={vectorlogo} width={60} height={60} alt='logo' className='' />
                         <Image src={heliconia} width={220} height={60} alt='logo' className='' />
