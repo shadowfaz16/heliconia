@@ -41,6 +41,7 @@ const Tobias = localFont({
   variable: '--font-tobias', // Add this line
 })
 
+
 export const metadata: Metadata = {
   title: 'Heliconia',
   description: 'Heliconia is art.',
@@ -53,7 +54,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${NeueHaasGroteskDisplay.variable} ${Tobias.variable} bg-[#E6E3D6]`}>
+      <body className={`${NeueHaasGroteskDisplay.variable} ${Tobias.variable} bg-[#E6E3D6] overflow-x-hidden`}>
         <Navbar />
         {children}
         <Footer />

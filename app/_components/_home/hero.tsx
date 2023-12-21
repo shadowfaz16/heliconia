@@ -23,12 +23,13 @@ const Hero = () => {
     const opacity = useTransform(scrollYProgress, [0, 0.1], [1, 0]); // Opacity to fade out the text
 
     const h1scale = useTransform(scrollYProgress, [0, 0.03], [1, 0.15]); // Scale for the 'Heliconia' text
-    const h1yPos = useTransform(scrollYProgress, [0, 0.03], ['0vh', '-16vh']); // Vertical position
-    const h1zIndex = useTransform(scrollYProgress, [0, 3], [40, 10]); // Adjust zIndex based on scroll
+    const h1yPos = useTransform(scrollYProgress, [0, 0.03], ['0vh', '-19vh']); // Vertical position
 
-    const h1opacity = useTransform(scrollYProgress, [0, 0.04], [1, 0]); // Opacity to fade out the text
+    const h1opacity = useTransform(scrollYProgress, [0, 0.03], [1, 0]); // Opacity to fade out the text
 
-    const textColor = useTransform(scrollYProgress, [0, 0.025], ['#E6E3D6', '#000000']);
+    const textopacity = useTransform(scrollYProgress, [0, .03], [1, 0]); // Opacity to fade out the text
+
+    const textColor = useTransform(scrollYProgress, [0, 0.02], ['#E6E3D6', '#000000']);
 
 
     const [hasScrolled, setHasScrolled] = useState(false);
@@ -50,17 +51,17 @@ const Hero = () => {
     return (
         <>
             <motion.div
-                style={{ y: h1yPos, opacity: h1opacity }}
-                className="font-tobias font-light text-4xl z-50 absolute flex top-64 w-full justify-between px-8"
+                style={{ y: h1yPos }}
+                className="font-tobias font-light text-4xl z-50 absolute top-64 w-full justify-between px-8 hidden md:flex"
             >
                 <motion.ul
-                    style={{ color: textColor }}
+                    style={{ color: textColor, opacity: textopacity }}
                     className='flex text-base font-neue space-x-8'>
                     <li>About</li>
                     <li>Artists</li>
                 </motion.ul>
                 <motion.ul
-                    style={{ color: textColor }}
+                    style={{ color: textColor, opacity: textopacity }}
                     className='flex text-base font-neue space-x-8'>
                     <li>Press</li>
                     <li>Contact</li>
@@ -68,8 +69,8 @@ const Hero = () => {
             </motion.div>
             <motion.div id='hero' style={{ scale, zIndex, y: yPos, color: textColor }} className="w-full mb-20 ">
                 <motion.h1
-                    style={{ scale: h1scale, y: h1yPos, opacity, zIndex: h1zIndex }}
-                    className="font-tobias font-light uppercase text-center text-4xl absolute w-full flex justify-center top-24 md:text-[14dvw] "
+                    style={{ scale: h1scale, y: h1yPos, opacity: h1opacity }}
+                    className="font-tobias font-light uppercase text-center text-4xl absolute w-full flex justify-center top-24 md:text-[14dvw] z-50"
                 >
                     Heliconia
                 </motion.h1>

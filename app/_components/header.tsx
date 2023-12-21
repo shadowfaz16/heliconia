@@ -34,6 +34,17 @@ const Navbar = () => {
         }
     }
 
+    const scrollToTopWithOffset = () => {
+        const offset = 80; // Offset in pixels
+        window.scrollTo({ top: offset, behavior: 'smooth' });
+    };
+
+    const scrollToTopWithOffsetMobile = () => {
+        const offset = 100; // Offset in pixels
+        window.scrollTo({ top: offset, behavior: 'smooth' });
+    };
+
+
     const menuVariants = {
         open: { opacity: 1, y: 0 },
         closed: { opacity: 0, y: '-120%' },
@@ -51,7 +62,8 @@ const Navbar = () => {
                 </div>
 
                 {/* Logo */}
-                <Image src={logo} width={220} height={220} alt='logo' className='w-36 md:w-52 hover:cursor-pointer' onClick={() => scrollToSection('hero')} />
+                <Image src={logo} width={220} height={220} alt='logo' className='w-36 md:w-52 hover:cursor-pointer hidden md:block' onClick={scrollToTopWithOffset} />
+                <Image src={logo} width={220} height={220} alt='logo' className='w-36 md:w-52 hover:cursor-pointer md:hidden' onClick={scrollToTopWithOffsetMobile} />
 
                 <div className='hidden md:flex'>
                     <ul className='flex space-x-8 text-[#03110B]'>
