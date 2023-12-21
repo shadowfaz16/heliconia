@@ -20,64 +20,116 @@ const Hero = () => {
     const scale = useTransform(scrollYProgress, [-0.1, 0.03], [2.3, 1]);
     const yPos = useTransform(scrollYProgress, [0, 0.03], ['0vh', '10dvh']); // Adjust these values as needed
     const zIndex = useTransform(scrollYProgress, [0, 1.7], [40, 10]); // Adjust zIndex based on scroll
+    const opacity = useTransform(scrollYProgress, [0, 0.1], [1, 0]); // Opacity to fade out the text
+
+    const h1scale = useTransform(scrollYProgress, [0, 0.03], [1, 0.15]); // Scale for the 'Heliconia' text
+    const h1yPos = useTransform(scrollYProgress, [0, 0.03], ['0vh', '-16vh']); // Vertical position
+    const h1zIndex = useTransform(scrollYProgress, [0, 3], [40, 10]); // Adjust zIndex based on scroll
+
+    const h1opacity = useTransform(scrollYProgress, [0, 0.04], [1, 0]); // Opacity to fade out the text
+
+    const textColor = useTransform(scrollYProgress, [0, 0.025], ['#E6E3D6', '#000000']);
+
+
+    const [hasScrolled, setHasScrolled] = useState(false);
+
+    useEffect(() => {
+        const updateHasScrolled = (value: number) => {
+            if (value > 0.03 && !hasScrolled) { // Adjust this threshold as needed
+                setHasScrolled(true);
+            }
+        };
+
+        const unsubscribe = scrollYProgress.on('change', updateHasScrolled);
+
+        return () => unsubscribe();
+    }, [hasScrolled, scrollYProgress]);
+
 
 
     return (
-        <motion.div id='hero' style={{ scale, zIndex, y: yPos }} className="w-full mb-20">
-            <Swiper
-                modules={[Navigation, Pagination, Autoplay, EffectFade]}
-                spaceBetween={30}
-                slidesPerView={1}
-                pagination={{ clickable: true }}
-                autoplay={{ delay: 5000 }}
-                loop={true}
-                effect="fade"
-                className="h-[80dvh] w-full rounded-md"
+        <>
+            <motion.div
+                style={{ y: h1yPos, opacity: h1opacity }}
+                className="font-tobias font-light text-4xl z-50 absolute flex top-64 w-full justify-between px-8"
             >
-                <SwiperSlide className="relative flex flex-col justify-end items-center bg-cover bg-center bg-red-400">
+                <motion.ul
+                    style={{ color: textColor }}
+                    className='flex text-base font-neue space-x-8'>
+                    <li>About</li>
+                    <li>Artists</li>
+                </motion.ul>
+                <motion.ul
+                    style={{ color: textColor }}
+                    className='flex text-base font-neue space-x-8'>
+                    <li>Press</li>
+                    <li>Contact</li>
+                </motion.ul>
+            </motion.div>
+            <motion.div id='hero' style={{ scale, zIndex, y: yPos, color: textColor }} className="w-full mb-20 ">
+                <motion.h1
+                    style={{ scale: h1scale, y: h1yPos, opacity, zIndex: h1zIndex }}
+                    className="font-tobias font-light uppercase text-center text-4xl absolute w-full flex justify-center top-24 md:text-[14dvw] "
+                >
+                    Heliconia
+                </motion.h1>
 
-                    <Image src={hero1} layout="fill" objectFit="cover" objectPosition="center" alt='logo' className='w-full absolute h-full' />
-                    <div className='absolute bottom-12 left-0 w-full h-full flex flex-col justify-end items-center text-[#E6E3D6] space-y-2 px-6 md:px-0'>
-                        <Image src={vectorlogo} width={60} height={60} alt='logo' className='' />
-                        <Image src={heliconia} width={220} height={60} alt='logo' className='' />
-                        <div className='max-w-4xl mx-auto text-center'>
-                            <p className='md:text-2xl font-neue font-light uppercase'>
-                                In the realm of Greek mythology, evoking art and beauty, the plant ‘Heliconia’ was named after the illustrious Mount Helicon, the home of Apollo and the Muses.
-                            </p>
+
+                <Swiper
+                    modules={[Navigation, Pagination, Autoplay, EffectFade]}
+                    spaceBetween={30}
+                    slidesPerView={1}
+                    pagination={{ clickable: true }}
+                    autoplay={{ delay: 5000 }}
+                    loop={true}
+                    effect="fade"
+                    className="h-[80dvh] w-full rounded-md"
+                >
+                    <SwiperSlide className="relative flex flex-col justify-end items-center bg-cover bg-center bg-red-400">
+
+                        <Image src={hero1} layout="fill" objectFit="cover" objectPosition="center" alt='logo' className='w-full absolute h-full' />
+                        <div className='absolute bottom-12 left-0 w-full h-full flex flex-col justify-end items-center text-[#E6E3D6] space-y-2 px-6 md:px-0'>
+                            <Image src={vectorlogo} width={60} height={60} alt='logo' className='' />
+                            <Image src={heliconia} width={220} height={60} alt='logo' className='' />
+                            <div className='max-w-4xl mx-auto text-center'>
+                                <p className='md:text-2xl font-neue font-light uppercase'>
+                                    In the realm of Greek mythology, evoking art and beauty, the plant ‘Heliconia’ was named after the illustrious Mount Helicon, the home of Apollo and the Muses.
+                                </p>
+                            </div>
                         </div>
-                    </div>
 
-                </SwiperSlide>
-                <SwiperSlide className="flex justify-center items-center bg-cover bg-center bg-blue-400">
+                    </SwiperSlide>
+                    <SwiperSlide className="flex justify-center items-center bg-cover bg-center bg-blue-400">
 
-                    <Image src={hero2} layout="fill" objectFit="cover" objectPosition="center" alt='logo' className='w-full absolute h-full' />
-                    <div className='absolute bottom-12 left-0 w-full h-full flex flex-col justify-end items-center text-[#E6E3D6] space-y-2 px-6 md:px-0'>
-                        <Image src={vectorlogo} width={60} height={60} alt='logo' className='' />
-                        <Image src={heliconia} width={220} height={60} alt='logo' className='' />
-                        <div className='max-w-4xl mx-auto text-center'>
-                            <p className='md:text-2xl font-neue font-light uppercase'>
-                                Heliconia seeks to break the mold of the traditional contemporary ‘art gallery’. Heliconia is an art world oasis — bridging the gap between the Caribbean and the rest of the world.
-                            </p>
+                        <Image src={hero2} layout="fill" objectFit="cover" objectPosition="center" alt='logo' className='w-full absolute h-full' />
+                        <div className='absolute bottom-12 left-0 w-full h-full flex flex-col justify-end items-center text-[#E6E3D6] space-y-2 px-6 md:px-0'>
+                            <Image src={vectorlogo} width={60} height={60} alt='logo' className='' />
+                            <Image src={heliconia} width={220} height={60} alt='logo' className='' />
+                            <div className='max-w-4xl mx-auto text-center'>
+                                <p className='md:text-2xl font-neue font-light uppercase'>
+                                    Heliconia seeks to break the mold of the traditional contemporary ‘art gallery’. Heliconia is an art world oasis — bridging the gap between the Caribbean and the rest of the world.
+                                </p>
+                            </div>
                         </div>
-                    </div>
 
-                </SwiperSlide>
-                <SwiperSlide className="flex justify-center items-center bg-cover bg-center bg-green-400">
+                    </SwiperSlide>
+                    <SwiperSlide className="flex justify-center items-center bg-cover bg-center bg-green-400">
 
-                    <Image src={hero3} layout="fill" objectFit="cover" objectPosition="center" alt='logo' className='w-full absolute h-full' />
-                    <div className='absolute bottom-12 left-0 w-full h-full flex flex-col justify-end items-center text-[#E6E3D6] space-y-2 px-6 md:px-0'>
-                        <Image src={vectorlogo} width={60} height={60} alt='logo' className='' />
-                        <Image src={heliconia} width={220} height={60} alt='logo' className='' />
-                        <div className='max-w-4xl mx-auto text-center'>
-                            <p className='md:text-2xl font-neue font-light uppercase'>
-                                Featuring exhibitions, presentations, as well as discussions and symposiums, Heliconia will serve as an ecosystem connecting artists, collectors, and art professionals alike.
-                            </p>
+                        <Image src={hero3} layout="fill" objectFit="cover" objectPosition="center" alt='logo' className='w-full absolute h-full' />
+                        <div className='absolute bottom-12 left-0 w-full h-full flex flex-col justify-end items-center text-[#E6E3D6] space-y-2 px-6 md:px-0'>
+                            <Image src={vectorlogo} width={60} height={60} alt='logo' className='' />
+                            <Image src={heliconia} width={220} height={60} alt='logo' className='' />
+                            <div className='max-w-4xl mx-auto text-center'>
+                                <p className='md:text-2xl font-neue font-light uppercase'>
+                                    Featuring exhibitions, presentations, as well as discussions and symposiums, Heliconia will serve as an ecosystem connecting artists, collectors, and art professionals alike.
+                                </p>
+                            </div>
                         </div>
-                    </div>
 
-                </SwiperSlide>
-            </Swiper>
-        </motion.div >
+                    </SwiperSlide>
+                </Swiper>
+            </motion.div >
+        </>
     )
 }
 
