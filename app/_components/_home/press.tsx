@@ -12,15 +12,15 @@ const Press = () => {
                     Press
                 </h3>
             </div>
-            <div className='flex flex-col md:flex-row justify-between w-full gap-8'>
-                <Link target='_blank' href='https://ritmosocial.com/nicole-y-elsa-promoviendo-las-artes/' className='flex flex-col md:flex-row gap-4 md:gap-6 w-full md:w-1/2'>
+            <div className='flex flex-col md:flex-row justify-between w-full gap-8 text-center md:text-left'>
+                <Link target='_blank' href='https://ritmosocial.com/nicole-y-elsa-promoviendo-las-artes/' className='flex flex-col md:flex-row gap-4 md:gap-6 w-full md:w-1/2 items-center justify-center md:items-start'>
                     <Image src={ritmoSocial} width={200} height={300} alt='logo' className='rounded-md w-72 h-72 hover:cursor-pointer' />
                     <h5 className='uppercase font-tobias font-light text-xl text-[#03110B]'>
                         Ritmo Social:<br />
                         Nicole Bainov de Varela y Elsa Maldonado Buitron
                     </h5>
                 </Link>
-                <Link target='_blank' href='https://nftstorage.link/ipfs/bafybeiaqpyvsx4ukctmx5hr2bnzn7g3nr5u62yyd5xu7qrfcl2edfwlkoa' className='flex flex-col md:flex-row gap-4 md:gap-6 w-full md:w-1/2'>
+                <Link target='_blank' href='https://nftstorage.link/ipfs/bafybeiaqpyvsx4ukctmx5hr2bnzn7g3nr5u62yyd5xu7qrfcl2edfwlkoa' className='flex flex-col md:flex-row gap-4 md:gap-6 w-full md:w-1/2 items-center justify-center md:items-start'>
                     <Image src={voguePoland} width={200} height={300} alt='logo' className='rounded-md w-72 h-72 hover:cursor-pointer' />
                     <h5 className='uppercase font-tobias font-light text-xl text-[#03110B]'>
                         Vogue Poland:<br /> OPTYMISTKI

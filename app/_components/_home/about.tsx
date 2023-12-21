@@ -7,12 +7,11 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 const About = () => {
 
     const { scrollYProgress } = useScroll();
-    const opacity = useTransform(scrollYProgress, [0.1, 0.25], [0, 1]);
-    const scale = useTransform(scrollYProgress, [0.1, 0.3], [0.8, 1]);
+
 
 
     return (
-        <motion.div style={{ opacity, scale }} id="about" className='bg-[#063827] text-[#E6E3D6] rounded-md flex flex-col-reverse md:flex-row items-center min-h-[80dvh] overflow-hidden my-24 md:h-[80dvh]'>
+        <motion.div id="about" className='bg-[#063827] text-[#E6E3D6] rounded-md flex flex-col-reverse md:flex-row items-center min-h-[80dvh] overflow-hidden my-24 md:h-[80dvh]'>
             <div className='p-6 space-y-4 md:w-3/5 md:space-y-8 md:p-16'>
                 <h3 className='uppercase text-3xl font-tobias font-light'>
                     About us

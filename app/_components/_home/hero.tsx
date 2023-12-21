@@ -1,5 +1,5 @@
 'use client'
-import React, { useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Swiper, SwiperSlide, SwiperRef, SwiperProps } from 'swiper/react';
 import { Navigation, Pagination, Autoplay, EffectFade } from 'swiper/modules';
 import 'swiper/css';
@@ -17,26 +17,22 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 
 const Hero = () => {
     const { scrollYProgress } = useScroll();
+    const scale = useTransform(scrollYProgress, [-0.1, 0.03], [2.3, 1]);
+    const yPos = useTransform(scrollYProgress, [0, 0.03], ['0vh', '10dvh']); // Adjust these values as needed
+    const zIndex = useTransform(scrollYProgress, [0, 1.7], [40, 10]); // Adjust zIndex based on scroll
 
-    // const handleSwiperClick = (swiper: { slideNext: () => void; }) => {
-    //     swiper.slideNext();
-    // };
 
     return (
-        <motion.div id='hero' className="w-full py-2">
+        <motion.div id='hero' style={{ scale, zIndex, y: yPos }} className="w-full mb-20">
             <Swiper
-                // install Swiper modules
                 modules={[Navigation, Pagination, Autoplay, EffectFade]}
                 spaceBetween={30}
                 slidesPerView={1}
-                // navigation
                 pagination={{ clickable: true }}
                 autoplay={{ delay: 5000 }}
                 loop={true}
                 effect="fade"
-                className="h-[85dvh] w-full rounded-md"
-            // onClick={({ swiper }) => handleSwiperClick(swiper)}
-
+                className="h-[80dvh] w-full rounded-md"
             >
                 <SwiperSlide className="relative flex flex-col justify-end items-center bg-cover bg-center bg-red-400">
 
