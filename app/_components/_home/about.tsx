@@ -6,12 +6,8 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 
 const About = () => {
 
-    const { scrollYProgress } = useScroll();
-
-
-
     return (
-        <motion.div id="about" className='bg-[#063827] text-[#E6E3D6] rounded-md flex flex-col-reverse md:flex-row items-center min-h-[80dvh] overflow-hidden my-12 md:my-24 md:h-[80dvh]'>
+        <motion.div id="about" className='bg-[#063827] text-[#E6E3D6] rounded-md flex flex-col-reverse md:flex-row items-center min-h-[80vh] overflow-hidden my-12 md:my-24 md:h-[80dvh]'>
             <div className='p-6 space-y-4 md:w-3/5 md:space-y-8 md:p-16'>
                 <h3 className='uppercase text-3xl font-tobias font-light'>
                     About us
@@ -27,7 +23,7 @@ const About = () => {
                 </div>
             </div>
             <div className='md:w-2/5 flex justify-center p-6 md:p-0'>
-                <Image src={aboutus} width={1000} height={1000} alt='logo' className='w-full md:w-96' />
+                <Image src={aboutus} width={2000} height={2000} alt='logo' className='w-full md:w-96' />
             </div>
 
         </motion.div>

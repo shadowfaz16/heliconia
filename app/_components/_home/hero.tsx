@@ -12,6 +12,7 @@ import hero3 from "../../assets/bg/hero3.png"
 import Image from 'next/image';
 import heliconia from "../../assets/static/heliconia.svg"
 import vectorlogo from "../../assets/static/vectorlogo.svg"
+import heliconialogo from "../../../public/logo-heliconia.svg"
 import { motion, useScroll, useTransform } from 'framer-motion';
 
 
@@ -20,12 +21,11 @@ const Hero = () => {
     const scale = useTransform(scrollYProgress, [-0.1, 0.03], [2.3, 1]);
     const yPos = useTransform(scrollYProgress, [0, 0.03], ['0vh', '10dvh']); // Adjust these values as needed
     const zIndex = useTransform(scrollYProgress, [0, 1.7], [40, 10]); // Adjust zIndex based on scroll
-    const opacity = useTransform(scrollYProgress, [0, 0.1], [1, 0]); // Opacity to fade out the text
 
     const h1scale = useTransform(scrollYProgress, [0, 0.03], [1, 0.15]); // Scale for the 'Heliconia' text
     const h1yPos = useTransform(scrollYProgress, [0, 0.03], ['0vh', '-19vh']); // Vertical position
 
-    const h1opacity = useTransform(scrollYProgress, [0, 0.03], [1, 0]); // Opacity to fade out the text
+    const h1opacity = useTransform(scrollYProgress, [0, 0.04], [1, 0]); // Opacity to fade out the text
 
     const textopacity = useTransform(scrollYProgress, [0, .03], [1, 0]); // Opacity to fade out the text
 
@@ -52,7 +52,7 @@ const Hero = () => {
         <>
             <motion.div
                 style={{ y: h1yPos }}
-                className="font-tobias font-light text-4xl z-50 absolute top-64 w-full justify-between px-8 hidden md:flex"
+                className="font-tobias font-light text-4xl z-50 absolute top-64 w-full justify-between px-8 hidden md:flex overflow-x-hidden"
             >
                 <motion.ul
                     style={{ color: textColor, opacity: textopacity }}
@@ -68,12 +68,18 @@ const Hero = () => {
                 </motion.ul>
             </motion.div>
             <motion.div id='hero' style={{ scale, zIndex, y: yPos, color: textColor }} className="w-full mb-20 ">
-                <motion.h1
-                    style={{ scale: h1scale, y: h1yPos, opacity: h1opacity }}
-                    className="font-tobias font-light uppercase text-center text-4xl absolute w-full flex justify-center top-24 md:text-[14dvw] z-50"
+                <motion.div style={{ scale: h1scale, y: h1yPos, opacity: h1opacity }}
+                    className="absolute w-full flex justify-center top-10 z-50"
                 >
-                    Heliconia
-                </motion.h1>
+                    <Image
+                        src={heliconialogo}
+                        width={1000}
+                        height={1000}
+                        alt='logo'
+                        className='w-[74dvw]'
+                    />
+                </motion.div>
+
 
 
                 <Swiper
