@@ -18,7 +18,7 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 
 const Hero = () => {
     const { scrollYProgress } = useScroll();
-    const scale = useTransform(scrollYProgress, [-0.1, 0.03], [2.3, 1]);
+    const [isMobile, setIsMobile] = useState(false);
     const yPos = useTransform(scrollYProgress, [0, 0.03], ['0vh', '10dvh']); // Adjust these values as needed
     const zIndex = useTransform(scrollYProgress, [0, 1.7], [40, 10]); // Adjust zIndex based on scroll
 
@@ -33,6 +33,26 @@ const Hero = () => {
 
 
     const [hasScrolled, setHasScrolled] = useState(false);
+
+    useEffect(() => {
+        const checkIfMobile = () => {
+            setIsMobile(window.innerWidth < 768);
+        };
+
+        // Check immediately in case the page is loaded on a mobile device
+        checkIfMobile();
+
+        // Add event listener for subsequent resize events
+        window.addEventListener('resize', checkIfMobile);
+
+        // Cleanup the event listener when the component unmounts
+        return () => {
+            window.removeEventListener('resize', checkIfMobile);
+        };
+    }, []);
+
+    const scale = useTransform(scrollYProgress, isMobile ? [-.01, 0.03] : [-0.1, 0.03], isMobile ? [1.3, 1] : [2.3, 1]);
+
 
     useEffect(() => {
         const updateHasScrolled = (value: number) => {

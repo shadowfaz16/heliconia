@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import React from 'react'
-import ritmoSocial from '../../assets/press/ritmo-social.png'
+import ritmoSocial from '../../assets/press/ritmo-social.jpg'
 import voguePoland from '../../assets/press/vogue-poland.png'
 import Link from 'next/link'
 

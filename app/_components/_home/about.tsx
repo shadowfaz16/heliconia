@@ -1,6 +1,6 @@
 'use client'
 import React from 'react'
-import aboutus from "../../assets/static/aboutus.png"
+import aboutus from "../../assets/static/aboutus.jpg"
 import Image from 'next/image'
 import { motion, useScroll, useTransform } from 'framer-motion';
 
