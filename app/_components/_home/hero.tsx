@@ -31,8 +31,16 @@ const Hero = () => {
 
     const textColor = useTransform(scrollYProgress, [0, 0.02], ['#E6E3D6', '#000000']);
 
-
     const [hasScrolled, setHasScrolled] = useState(false);
+
+    const scrollToSection = (sectionId: string) => {
+        const section = document.getElementById(sectionId);
+        if (section) {
+            const offsetTop = section.getBoundingClientRect().top + window.scrollY - 100;
+            window.scrollTo({ top: offsetTop, behavior: 'smooth' });
+
+        }
+    }
 
     useEffect(() => {
         const checkIfMobile = () => {
@@ -77,14 +85,14 @@ const Hero = () => {
                 <motion.ul
                     style={{ color: textColor, opacity: textopacity }}
                     className='flex text-base font-neue space-x-8'>
-                    <li>About</li>
-                    <li>Artists</li>
+                    <li onClick={() => scrollToSection('about')} >About</li>
+                    <li onClick={() => scrollToSection('artists')}>Artists</li>
                 </motion.ul>
                 <motion.ul
                     style={{ color: textColor, opacity: textopacity }}
                     className='flex text-base font-neue space-x-8'>
-                    <li>Press</li>
-                    <li>Contact</li>
+                    <li onClick={() => scrollToSection('press')}>Press</li>
+                    <li onClick={() => scrollToSection('contact')}>Contact</li>
                 </motion.ul>
             </motion.div>
             <motion.div id='hero' style={{ scale, zIndex, y: yPos, color: textColor }} className="w-full mb-20 ">

@@ -15,7 +15,6 @@ const config: Config = {
       },
     },
       fontFamily: {
-
         neue: ['var(--font-neue)'], 
         tobias: ['var(--font-tobias)'],
       },
